@@ -3,9 +3,9 @@ import styled from "styled-components";
 export const Button = styled.button`
   border-radius: 6px;
   padding: 10px 24px;
-  background: #8c19d2;
+  background: var(--purple-100);
   border: 0;
-  color: #fff;
+  color: var(--white);
 
   font-family: "Inter", sans-serif;
   font-weight: 600;

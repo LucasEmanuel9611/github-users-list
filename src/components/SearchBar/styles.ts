@@ -2,12 +2,11 @@ import styled from "styled-components";
 
 export const SearchBarContainer = styled.div`
   display: flex;
-  /* justify-content: center; */
   padding: 0 16px;
   align-items: center;
   width: 592px;
   height: 48px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--gray-100);
   border-radius: 6px;
 `;
 

@@ -11,7 +11,7 @@ export const TitleText = styled.h1<TitleTextProps>`
   font-size: ${({ $size }) => $size};
   height: 109px;
   margin: 0;
-  color: ${({ $color }) => $color};
+  color: var(${({ $color }) => $color});
 `;
 
 export const TitleContainer = styled.h1`
