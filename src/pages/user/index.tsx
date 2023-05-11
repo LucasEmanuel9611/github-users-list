@@ -7,6 +7,8 @@ import { UserDatesProps, UserReposProps } from '../../types/user';
 import * as Styled from "./styles"
 import { Title } from '../../components/Title';
 import { SearchBar } from '../../components/SearchBar';
+import { UserCard } from '../../components/UserCard';
+import { UserListRepos } from '../../components/UserListRepos';
 
 export const User = () => {
     const [userDates, setUserDates] = useState<UserDatesProps | null>()
@@ -27,6 +29,7 @@ export const User = () => {
                 followers: userDataReponse.followers,
                 following: userDataReponse.following,
                 email: userDataReponse.email,
+                location: userDataReponse.location,
             })
         }),
             api.get<GithubUserReposResponse[]>(`${params?.name}/repos`).then((reponse) => {
@@ -55,6 +58,14 @@ export const User = () => {
                         handleSetName={() => { }}
                         handleKeyDown={() => { }} />
                 </Styled.Header>
+                <Styled.UserAccountContainer>
+                    {userDates &&
+                        <UserCard {...userDates} />
+                    }
+                    {userRepos &&
+                        <UserListRepos {...userRepos} />
+                    }
+                </Styled.UserAccountContainer>
             </Styled.SubContainer>
         </Styled.Container>
     )

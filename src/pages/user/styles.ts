@@ -23,3 +23,7 @@ export const ContentContainer = styled.div`
   display: flex;
   gap: 32px;
 `;
+export const UserAccountContainer = styled.div`
+  display: flex;
+  gap: 32px;
+`;

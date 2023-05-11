@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Button } from "../../components/Button";
 
 export const Container = styled.div`
   display: flex;
@@ -19,4 +20,8 @@ export const SearchContainer = styled.div`
   display: flex;
   margin-top: 56px;
   gap: 32px;
+`;
+
+export const SearchButton = styled(Button)`
+  width: 176px;
 `;

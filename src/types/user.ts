@@ -8,6 +8,7 @@ export type UserDatesProps = {
   followers: string | null;
   following: string | null;
   email: string | null;
+  location: string | null;
 };
 
 export type UserReposProps = {
