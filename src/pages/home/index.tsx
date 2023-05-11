@@ -28,7 +28,11 @@ export const Home = () => {
             <Styled.SubContainer>
                 <Title size={80} />
                 <Styled.SearchContainer>
-                    <SearchBar placeHolder="Search" handleSetName={handleSetName} handleKeyDown={(event) => handleKeyEnter(name, event)} />
+                    <SearchBar
+                        placeHolder="Search"
+                        handleSetName={handleSetName}
+                        handleKeyDown={(event) => handleKeyEnter(name, event)}
+                    />
                     <Button text="Search" handleClick={() => handleSearch(name)} />
                 </Styled.SearchContainer>
             </Styled.SubContainer>

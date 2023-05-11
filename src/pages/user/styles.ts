@@ -3,20 +3,23 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   background-color: var(--white);
-  align-items: center;
   justify-content: center;
   height: 100vh;
 `;
 
 export const SubContainer = styled.div`
+  width: 1216px;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
 `;
 
-export const SearchContainer = styled.div`
+export const Header = styled.div`
   display: flex;
-  margin-top: 56px;
+  gap: 119px;
+  padding: 22px 0 102px;
+`;
+
+export const ContentContainer = styled.div`
+  display: flex;
   gap: 32px;
 `;
