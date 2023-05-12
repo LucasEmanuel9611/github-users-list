@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import { api } from '../../libs/axios';
 import { useState } from "react"
 import { GithubUserDatesResponse, GithubUserReposResponse } from '../../types/github';
@@ -10,7 +10,6 @@ import { SearchBar } from '../../components/SearchBar';
 import { UserCard } from '../../components/UserCard';
 import { UserListRepos } from '../../components/UserListRepos';
 import { LoadingSpinner } from '../../components/LoadingSpinner';
-import { handleKeyEnter } from '../../utils/services';
 
 export const User = () => {
     const [userDates, setUserDates] = useState<UserDatesProps | null>()
@@ -18,6 +17,7 @@ export const User = () => {
     const [loading, setLoading] = useState(true)
     const [name, setName] = useState('')
     const params = useParams()
+    const navigate = useNavigate();
 
     useEffect(() => {
         Promise.all([
@@ -74,6 +74,15 @@ export const User = () => {
                 setLoading(false)
             })
     }, [])
+
+    const handleKeyEnter = (
+        name: string,
+        event: React.KeyboardEvent<HTMLInputElement>
+    ) => {
+        if (event.key === "Enter") {
+            navigate(`perfil/${name}`);
+        }
+    };
 
     return (
         <Styled.Container>
