@@ -1,4 +1,4 @@
-import { ChangeEventHandler, KeyboardEventHandler, useState } from "react";
+import { ChangeEventHandler, KeyboardEventHandler } from "react";
 import { SearchIcon } from "../../assets/SearchIcon"
 import * as Styled from "./styles"
 

@@ -12,7 +12,13 @@ export const router = createBrowserRouter([
         ),
     },
     {
-        path: "/user/:name",
+        path: "/home",
+        element: (
+            <Home />
+        ),
+    },
+    {
+        path: "/perfil/:name",
         element: (
             <User />
         )
