@@ -21,7 +21,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ### Escolha das libs:
 
-- react - foi a tecnologia requisitada para realização dos test.
+- react - foi a tecnologia requisitada para realização do teste.
 - axios - permite fazer requisições, definir urls padrões, tratamento de erros, além do grande suporte na comunidade.
 - vite - A própria documentação do React pede para que seja usado algum framework como Next, Remix ou Gatsby caso não seja possível a documentação pede para usar algum bundler personalizado como Vite, o qual traz grande ganho de performance comparado a criação com o antigo create-react-app.
 - react-router - A lib mais usada na comunidade para navegação no react.
@@ -87,7 +87,7 @@ ou
 $ npm run test
 ```
 
-<strong>O relatórios detalhados de coverage estarão do diretório coverage na raiz do projeto e poderão ser vistos através de do arquivo index.html.</strong>
+<strong>O relatórios detalhados de coverage estarão no diretório coverage na raiz do projeto e poderão ser vistos através de do arquivo index.html.</strong>
 
 ### Estrutura:
 
