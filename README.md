@@ -23,6 +23,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - axios - permite fazer requisições, definir urls padrões, tratamento de erros, além do grande suporte na comunidade.
 - vite - A própria documentação do React pede para que seja usado algum framework como Next, Remix ou Gatsby caso não seja possível a documentação pede para usar algum bundler personalizado como Vite, o qual traz grande ganho de performance comparado a criação com o antigo create-react-app.
 - react-router - A lib mais usada na comunidade para navegação no react.
+- typescript - foi escolhido para facilitar a manutenção e entendimento no código, na atualidade o typescript é essencial para um bom ciclo de vida do projeto.
 - dayjs - lib para manipulação de datas de fácil uso, amplo suporte e muito leve.
 - styled-components - lib que permite grande versatilidade na criação de estilos comparado a libs como material ui e bootstrap, outro motivo para uso em comparação a libs zero-runtime como tawilind é que a aplicação não requer nenhum carregamento de estilos sem javascript.
 
@@ -68,4 +69,4 @@ $ npm run build
 
 ### Estrutura:
 
-A aplicação permite fazer busca do usuário pelo seu nome no github, ao fazer a busca e
+A aplicação permite fazer busca do usuário pelo seu usernme do github, ao fazer a busca o usuário é direcionado para página de perfil onde é listado vários dados e repositórios do usuário.
