@@ -64,8 +64,8 @@ ou
 $ npm run build
 ```
 
+<strong>O app estará disponível no seu browser pelo endereço http://localhost:5173/.</strong>
+
 ### Estrutura:
 
 A aplicação permite fazer busca do usuário pelo seu nome no github, ao fazer a busca e
-
-<strong>O app estará disponível no seu browser pelo endereço http://localhost:5173/.</strong>

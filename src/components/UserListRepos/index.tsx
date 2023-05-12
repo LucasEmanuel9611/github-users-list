@@ -9,8 +9,8 @@ type UserListReposProps = {
 export const UserListRepos = ({ repos }: UserListReposProps) => {
     return (
         <Styled.ReposContainer>
-            {repos.map(repo => (
-                <RepoCard {...repo} />
+            {repos.map((repo, index) => (
+                <RepoCard {...repo} key={index} />
             ))}
         </Styled.ReposContainer>
     )
