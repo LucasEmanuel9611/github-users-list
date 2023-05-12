@@ -57,6 +57,8 @@ ou
 $ npm start
 ```
 
+<strong>O app estará disponível no seu browser pelo endereço http://localhost:5173/ ou outro indicado pelo terminal.</strong>
+
 Para buildar a aplicação use o seguinte comando:
 
 ```bash
@@ -65,7 +67,25 @@ ou
 $ npm run build
 ```
 
-<strong>O app estará disponível no seu browser pelo endereço http://localhost:5173/.</strong>
+Para Iniciar o build da aplicação use o seguinte comando:
+
+```bash
+$ yarn serve
+ou
+$ npm run serve
+```
+
+<strong>O app estará disponível no seu browser pelo endereço http://localhost:4173/ ou outro indicado pelo terminal.</strong
+
+Para rodar os tests da aplicação use o seguinte comando:
+
+```bash
+$ yarn test
+ou
+$ npm run test
+```
+
+<strong>O relatórios detalhados de coverage estarão do diretório coverage na raiz do projeto.</strong>
 
 ### Estrutura:
 
