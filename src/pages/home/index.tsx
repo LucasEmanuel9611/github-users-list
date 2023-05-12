@@ -7,10 +7,6 @@ import { handleKeyEnter, handleSearch } from "../../utils/services"
 export const Home = () => {
     const [name, setName] = useState('')
 
-    const handleSetName = (searchTerm: any) => {
-        setName(searchTerm.target.value)
-    }
-
     return (
         <Styled.Container>
             <Styled.SubContainer>
@@ -18,8 +14,9 @@ export const Home = () => {
                 <Styled.SearchContainer>
                     <SearchBar
                         placeHolder="Search"
-                        handleSetName={handleSetName}
+                        handleSetName={(searchTerm) => setName(searchTerm.target.value)}
                         handleKeyDown={(event) => handleKeyEnter(name, event)}
+                        borderColor="--gray-100"
                     />
                     <Styled.SearchButton text="Search" handleClick={() => handleSearch(name)} />
                 </Styled.SearchContainer>

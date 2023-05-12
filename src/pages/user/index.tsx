@@ -10,11 +10,13 @@ import { SearchBar } from '../../components/SearchBar';
 import { UserCard } from '../../components/UserCard';
 import { UserListRepos } from '../../components/UserListRepos';
 import { LoadingSpinner } from '../../components/LoadingSpinner';
+import { handleKeyEnter } from '../../utils/services';
 
 export const User = () => {
     const [userDates, setUserDates] = useState<UserDatesProps | null>()
     const [userRepos, setUserRepos] = useState<UserReposProps[] | null>()
     const [loading, setLoading] = useState(true)
+    const [name, setName] = useState('')
     const params = useParams()
 
     useEffect(() => {
@@ -80,8 +82,10 @@ export const User = () => {
                     <Title size={32} />
                     <SearchBar
                         placeHolder={params?.name || ""}
-                        handleSetName={() => { }}
-                        handleKeyDown={() => { }} />
+                        handleSetName={(searchTerm) => setName(searchTerm.target.value)}
+                        handleKeyDown={(event) => handleKeyEnter(name, event)}
+                        borderColor="--purple-100"
+                    />
                 </Styled.Header>
                 {loading ?
                     <LoadingSpinner />

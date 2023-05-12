@@ -1,12 +1,16 @@
 import styled from "styled-components";
 
-export const SearchBarContainer = styled.div`
+type SearchBarContainerProps = {
+  $borderColor: string;
+};
+
+export const SearchBarContainer = styled.div<SearchBarContainerProps>`
   display: flex;
   padding: 0 16px;
   align-items: center;
   width: 592px;
   height: 48px;
-  border: 1px solid var(--gray-100);
+  border: 1px solid var(${({ $borderColor }) => $borderColor});
   border-radius: 6px;
 `;
 

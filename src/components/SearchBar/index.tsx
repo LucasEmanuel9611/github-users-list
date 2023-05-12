@@ -4,14 +4,15 @@ import * as Styled from "./styles"
 
 type SearchBarProps = {
     placeHolder: string;
-    handleSetName: ChangeEventHandler
+    handleSetName: ChangeEventHandler<HTMLInputElement>
     handleKeyDown: KeyboardEventHandler<HTMLInputElement>
+    borderColor: string;
 }
 
-export const SearchBar = ({ placeHolder, handleSetName, handleKeyDown }: SearchBarProps) => {
+export const SearchBar = ({ placeHolder, handleSetName, handleKeyDown, borderColor }: SearchBarProps) => {
 
     return (
-        <Styled.SearchBarContainer >
+        <Styled.SearchBarContainer $borderColor={borderColor}>
             <SearchIcon />
             <Styled.InputSearchBar
                 placeholder={placeHolder}
