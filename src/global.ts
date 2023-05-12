@@ -11,6 +11,7 @@ export const GlobalStyle = createGlobalStyle`
 
   --dark-100: #1A202C;
   --dark-200: #171923;
+  --dark-300: rgba(0, 0, 0, 0.5);
 
   --blue-100: #0069CA;
 

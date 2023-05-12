@@ -10,10 +10,13 @@ import { SearchBar } from '../../components/SearchBar';
 import { UserCard } from '../../components/UserCard';
 import { UserListRepos } from '../../components/UserListRepos';
 import { LoadingSpinner } from '../../components/LoadingSpinner';
+import { ErrorModal } from '../../components/ErrorModal';
 
 export const User = () => {
     const [userDates, setUserDates] = useState<UserDatesProps | null>()
     const [userRepos, setUserRepos] = useState<UserReposProps[] | null>()
+    const [title, setTitle] = useState("")
+    const [openModal, setOpenModal] = useState(false)
     const [loading, setLoading] = useState(true)
     const [name, setName] = useState('')
     const params = useParams()
@@ -69,11 +72,24 @@ export const User = () => {
                 setUserDates(userDataProps)
             })
             .catch(error => {
+                setOpenModal(true)
+                if (error.response?.status === 404) {
+                    setTitle("O usuário buscado não existe")
+
+                    return
+                }
+
+                if (error.data.message) {
+                    setTitle(error.data.message)
+                    return
+                }
+
+                setTitle("Ocorreu um erro inesperado")
                 console.error(error)
             }).finally(() => {
                 setLoading(false)
             })
-    }, [])
+    }, [params?.name])
 
     const handleKeyEnter = (
         name: string,
@@ -83,6 +99,11 @@ export const User = () => {
             navigate(`perfil/${name}`);
         }
     };
+
+    const handleCloseModal = () => {
+        setOpenModal(false)
+        navigate(`/home`)
+    }
 
     return (
         <Styled.Container>
@@ -111,6 +132,7 @@ export const User = () => {
                         }
                     </Styled.ContentContainer>
                 }
+                <ErrorModal isOpen={openModal} onClose={handleCloseModal} title={title} />
             </Styled.SubContainer>
         </Styled.Container>
     )
