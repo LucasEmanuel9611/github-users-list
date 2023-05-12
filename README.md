@@ -3,6 +3,7 @@
 <div > 
   <img src="https://github.com/LucasEmanuel9611/github-users-list/blob/main/public/images/home.png" alt="img home"/>
   <img src="https://github.com/LucasEmanuel9611/github-users-list/blob/main/public/images/perfil.png" alt="img perfil page"/>
+  <img src="https://github.com/LucasEmanuel9611/github-users-list/blob/main/public/images/coverage.png" alt="img coverage reports"/>
 </div>
 
 ## 🧪 Tecnologias Utlizadas
@@ -16,6 +17,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [Typescript](https://www.typescriptlang.org/)
 - [dayjs](https://day.js.org/)
 - [styled-components](https://styled-components.com/docs)
+- [jest](https://jestjs.io/pt-BR/)
 
 ### Escolha das libs:
 
@@ -75,7 +77,7 @@ ou
 $ npm run serve
 ```
 
-<strong>O app estará disponível no seu browser pelo endereço http://localhost:4173/ ou outro indicado pelo terminal.</strong
+<strong>O app estará disponível no seu browser pelo endereço http://localhost:4173/ ou outro indicado pelo terminal.</strong>
 
 Para rodar os tests da aplicação use o seguinte comando:
 
@@ -85,7 +87,7 @@ ou
 $ npm run test
 ```
 
-<strong>O relatórios detalhados de coverage estarão do diretório coverage na raiz do projeto.</strong>
+<strong>O relatórios detalhados de coverage estarão do diretório coverage na raiz do projeto e poderão ser vistos através de do arquivo index.html.</strong>
 
 ### Estrutura:
 
