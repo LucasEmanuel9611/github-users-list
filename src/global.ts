@@ -10,6 +10,7 @@ export const GlobalStyle = createGlobalStyle`
 
 
   --dark-100: #1A202C;
+  --dark-200: #171923;
 
   --blue-100: #0069CA;
 

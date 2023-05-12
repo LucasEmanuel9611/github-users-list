@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const UserContainer = styled.div`
   display: flex;
   width: 280px;
-  height: 465px;
   left: 112px;
   padding: 24px 16px;
   flex-direction: column;
@@ -66,4 +65,23 @@ export const SocialDates = styled.div`
 
 export const Container = styled.div`
   width: 280px;
+`;
+
+export const BlogButton = styled.a`
+  display: flex;
+  border-radius: 6px;
+  padding: 10px 24px;
+  background: var(--purple-100);
+  color: var(--white);
+  width: 100%;
+
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 `;

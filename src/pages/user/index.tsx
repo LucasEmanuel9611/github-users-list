@@ -9,42 +9,67 @@ import { Title } from '../../components/Title';
 import { SearchBar } from '../../components/SearchBar';
 import { UserCard } from '../../components/UserCard';
 import { UserListRepos } from '../../components/UserListRepos';
+import { LoadingSpinner } from '../../components/LoadingSpinner';
 
 export const User = () => {
     const [userDates, setUserDates] = useState<UserDatesProps | null>()
     const [userRepos, setUserRepos] = useState<UserReposProps[] | null>()
+    const [loading, setLoading] = useState(true)
     const params = useParams()
 
     useEffect(() => {
-        api.get<GithubUserDatesResponse>(`/${params?.name}`).then((reponse) => {
-            const userDataReponse = reponse.data
-
-            setUserDates({
-                avatar: userDataReponse.avatar_url,
-                name: userDataReponse.name,
-                company: userDataReponse.company,
-                blog: userDataReponse.blog,
-                bio: userDataReponse.bio,
-                twitter_username: userDataReponse.twitter_username,
-                followers: userDataReponse.followers,
-                following: userDataReponse.following,
-                email: userDataReponse.email,
-                location: userDataReponse.location,
-            })
-        }),
-            api.get<GithubUserReposResponse[]>(`${params?.name}/repos`).then((reponse) => {
-                const reposDataReponse = reponse.data
+        Promise.all([
+            api.get<GithubUserDatesResponse>(`/${params?.name}`),
+            api.get<GithubUserReposResponse[]>(`${params?.name}/repos`)
+        ])
+            .then(([userDatesResponse, userReposResponse]) => {
+                const userData = userDatesResponse.data
+                const reposData = userReposResponse.data
                 const repos: UserReposProps[] = []
 
-                reposDataReponse.map((repo) => {
+                const userDataProps: UserDatesProps = {
+                    avatar: userData.avatar_url,
+                    name: userData.name,
+                    company: userData.company,
+                    blog: userData.blog,
+                    bio: userData.bio,
+                    twitter_username: userData.twitter_username,
+                    followers: userData.followers,
+                    following: userData.following,
+                    email: userData.email,
+                    location: userData.location,
+                }
+
+                reposData.map((repo) => {
                     repos.push({
                         name: repo.name,
                         description: repo.description,
                         updated_at: repo.updated_at,
-                        stars: repo.stargazers_count
+                        stars: repo.stargazers_count,
+                        url: repo.html_url,
                     })
                 })
-                setUserRepos(repos)
+
+                const sortedRepos = repos.sort((a, b) => {
+                    const starsA = a.stars ?? 0
+                    const starsB = b.stars ?? 0
+
+                    if (starsA > starsB) {
+                        return -1
+                    }
+                    if (starsA < starsB) {
+                        return 1
+                    }
+                    return 0
+                })
+
+                setUserRepos(sortedRepos)
+                setUserDates(userDataProps)
+            })
+            .catch(error => {
+                console.error(error)
+            }).finally(() => {
+                setLoading(false)
             })
     }, [])
 
@@ -58,14 +83,21 @@ export const User = () => {
                         handleSetName={() => { }}
                         handleKeyDown={() => { }} />
                 </Styled.Header>
-                <Styled.UserAccountContainer>
-                    {userDates &&
-                        <UserCard {...userDates} />
-                    }
-                    {userRepos &&
-                        <UserListRepos {...userRepos} />
-                    }
-                </Styled.UserAccountContainer>
+                {loading ?
+                    <LoadingSpinner />
+                    :
+                    <Styled.ContentContainer>
+                        <Styled.UserAccountContainer>
+                            {userDates &&
+                                <UserCard {...userDates} />
+                            }
+
+                        </Styled.UserAccountContainer>
+                        {userRepos &&
+                            <UserListRepos repos={userRepos} />
+                        }
+                    </Styled.ContentContainer>
+                }
             </Styled.SubContainer>
         </Styled.Container>
     )

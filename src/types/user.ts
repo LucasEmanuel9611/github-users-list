@@ -16,4 +16,5 @@ export type UserReposProps = {
   description: string | null;
   updated_at: string | null;
   stars: number | null;
+  url: string | null;
 };

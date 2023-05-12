@@ -7,10 +7,8 @@ import { TowerIcon } from "../../assets/TowerIcon"
 import { TwitterIcon } from "../../assets/TwitterIcon"
 import userImg from "../../assets/png/user.png"
 import { UserDatesProps } from "../../types/user"
-import { Button } from "../Button"
 import { UserField } from "../UserField"
 import * as Styled from "./styles"
-import { useNavigate } from "react-router";
 
 export const UserCard = ({
     avatar,
@@ -24,9 +22,6 @@ export const UserCard = ({
     location,
     twitter_username
 }: UserDatesProps) => {
-
-    const navigate = useNavigate();
-
     return (
         <Styled.Container>
             <Styled.UserContainer>
@@ -48,11 +43,11 @@ export const UserCard = ({
                     <UserField icon={<TowerIcon />} name={company} />
                     <UserField icon={<PlaceIcon />} name={location} />
                     <UserField icon={<MailIcon />} name={email} />
-                    <UserField icon={<LinkIcon />} name={blog} />
-                    <UserField icon={<TwitterIcon />} name={twitter_username} />
+                    <UserField icon={<LinkIcon />} name={blog} href={blog || ""} />
+                    <UserField icon={<TwitterIcon />} name={twitter_username} href={`https://twitter.com/${twitter_username}`} />
                 </Styled.SocialDates>
             </Styled.UserContainer>
-            <Button text="Contato" handleClick={() => navigate("/")} />
+            {blog && <Styled.BlogButton href={blog}>Contato</Styled.BlogButton>}
         </Styled.Container>
     )
 }

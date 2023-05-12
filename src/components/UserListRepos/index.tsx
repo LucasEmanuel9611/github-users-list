@@ -1,9 +1,17 @@
 import { UserReposProps } from "../../types/user"
+import { RepoCard } from "../RepoCard"
+import * as Styled from "./styles"
 
-export const UserListRepos = ({ }: UserReposProps[]) => {
+type UserListReposProps = {
+    repos: UserReposProps[]
+}
+
+export const UserListRepos = ({ repos }: UserListReposProps) => {
     return (
-        <div>
-            <div></div>
-        </div>
+        <Styled.ReposContainer>
+            {repos.map(repo => (
+                <RepoCard {...repo} />
+            ))}
+        </Styled.ReposContainer>
     )
 }

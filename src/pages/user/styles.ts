@@ -5,6 +5,7 @@ export const Container = styled.div`
   background-color: var(--white);
   justify-content: center;
   height: 100vh;
+  width: 100%;
 `;
 
 export const SubContainer = styled.div`
@@ -19,11 +20,12 @@ export const Header = styled.div`
   padding: 22px 0 102px;
 `;
 
+export const UserAccountContainer = styled.div`
+  display: flex;
+`;
+
 export const ContentContainer = styled.div`
   display: flex;
   gap: 32px;
-`;
-export const UserAccountContainer = styled.div`
-  display: flex;
-  gap: 32px;
+  padding-bottom: 50px;
 `;

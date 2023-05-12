@@ -16,4 +16,5 @@ export type GithubUserReposResponse = {
   description: string | null;
   updated_at: string | null;
   stargazers_count: number | null;
+  html_url: string | null;
 };
