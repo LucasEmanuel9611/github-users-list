@@ -11,6 +11,7 @@ import { UserCard } from '../../components/UserCard';
 import { UserListRepos } from '../../components/UserListRepos';
 import { LoadingSpinner } from '../../components/LoadingSpinner';
 import { ErrorModal } from '../../components/ErrorModal';
+import { sortRepoByStars } from '../../utils/common';
 
 export const User = () => {
     const [userDates, setUserDates] = useState<UserDatesProps | null>()
@@ -55,20 +56,9 @@ export const User = () => {
                     })
                 })
 
-                const sortedRepos = repos.sort((a, b) => {
-                    const starsA = a.stars ?? 0
-                    const starsB = b.stars ?? 0
+                const sortedReposByStarts = sortRepoByStars(repos)
 
-                    if (starsA > starsB) {
-                        return -1
-                    }
-                    if (starsA < starsB) {
-                        return 1
-                    }
-                    return 0
-                })
-
-                setUserRepos(sortedRepos)
+                setUserRepos(sortedReposByStarts)
                 setUserDates(userDataProps)
             })
             .catch(error => {
